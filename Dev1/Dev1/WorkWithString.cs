@@ -9,39 +9,58 @@ namespace Dev1
     /// </summary>
     public class WorkWithString
     {
+        public int CompareNumberOfLettersWithBufferNumberOfLetters(ref int numLetters,ref int bufferNum)
+        {
+            if (numLetters > bufferNum)
+            {
+                bufferNum = numLetters;                
+            }
+            return bufferNum;          
+        }
+
+        public void CheckOnTheEndOfLine(int i, string str, ref int numLet,ref int buf)
+        {
+            if (i == str.Length - 1)
+            {
+                buf = CompareNumberOfLettersWithBufferNumberOfLetters(ref numLet,ref buf);
+                numLet = 1;                
+            }
+            
+        }
+
         /// <summary>
         /// Method which gets the number of 
         /// </summary>
         /// <returns></returns>
         public int GetNumberOfMaxRepeatingSymbols(string inputString)
         {
-            if (string.IsNullOrWhiteSpace(inputString) == true)
+            if (inputString == null)
             {
-                throw new Exception("Incorrect string");
+                throw new Exception("UndefindException");
+                //return 0;
             }
+            
+            
 
             int numberOfLetters = 1;
-            var listNumberOfLetters = new List<int>();
-
+            int bufferNumberOfLetters = 0;
+                        
             for (int i = 1; i < inputString.Length; i++)
             {
                 if (inputString[i] == inputString[i - 1])
                 {
                     numberOfLetters += 1;
-                    if (inputString[i] == inputString[inputString.Length-1])
-                    {
-                        listNumberOfLetters.Add(numberOfLetters);
-                    }
-
+                    CheckOnTheEndOfLine(i, inputString, ref numberOfLetters,ref bufferNumberOfLetters);              
+                   
                 }
                 else
                 {
-                    listNumberOfLetters.Add(numberOfLetters);
-                    numberOfLetters = 1;
+                    bufferNumberOfLetters = CompareNumberOfLettersWithBufferNumberOfLetters(ref numberOfLetters,ref bufferNumberOfLetters);
+                    numberOfLetters = 1;                    
                 }
             }
 
-            return inputString.Length == 1 ? 1 : listNumberOfLetters.Max(); // If string has only one any symbol - return 1
+            return inputString.Length == 1 ? 1 : bufferNumberOfLetters; // If string has only one any symbol - return 1
         }
     }
 }

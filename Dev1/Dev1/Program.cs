@@ -9,10 +9,10 @@ namespace Dev1
         /// </summary>
         static void Main(string[] args)
         {
-            var unitedString = string.Join(" ", args);
+           /* var unitedString = string.Join(" ", args);
             var workWithString = new WorkWithString();
             var maxNumber = workWithString.GetNumberOfMaxRepeatingSymbols(unitedString);
-            Console.WriteLine(maxNumber);
+            Console.WriteLine(maxNumber);*/
         }
     }
 }
