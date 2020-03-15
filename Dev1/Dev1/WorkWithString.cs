@@ -30,8 +30,7 @@ namespace Dev1
                     numberOfSymbols += 1;
                     CheckOnTheEndOfLine(index, inputString, ref numberOfSymbols, ref bufferNumberOfSymbols);           
                 }
-                else
-                
+                else                
                 {
                     bufferNumberOfSymbols = CompareNumberOfSymbolsWithBufferNumberOfSymbols(ref numberOfSymbols, ref bufferNumberOfSymbols);
                     numberOfSymbols = 1;                    
@@ -62,7 +61,6 @@ namespace Dev1
                 bufferNumberOfSymbols = CompareNumberOfSymbolsWithBufferNumberOfSymbols(ref numberOfSymbols, ref bufferNumberOfSymbols);
                 numberOfSymbols = 1;
             }
-
         }
     }
 }
