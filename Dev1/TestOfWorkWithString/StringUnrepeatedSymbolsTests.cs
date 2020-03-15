@@ -18,7 +18,7 @@ namespace TestOfWorkWithString
         {
             var stringWorker = new WorkWithString();
             int actualNumberOfSymbols = stringWorker.GetNumberOfMaxUnrepeatingSymbols(testString);
-            ,
+            
             Assert.AreEqual(expectedNumberOfSymbols, actualNumberOfSymbols);
         }
 
