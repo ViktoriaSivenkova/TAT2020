@@ -1,66 +1,68 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Dev1
 {
     /// <summary>
-    /// Class for the work with the strings.
+    /// Class for the work with the string.
     /// </summary>
     public class WorkWithString
     {
-        public int CompareNumberOfLettersWithBufferNumberOfLetters(ref int numLetters,ref int bufferNum)
+        /// <summary>
+        /// Method which gets max number of unrepeating consecutive symbols in string
+        /// </summary>
+        public int GetNumberOfMaxUnrepeatingSymbols(string inputString)
         {
-            if (numLetters > bufferNum)
+            //Checking that the entered string is not null
+            if (inputString == null)
             {
-                bufferNum = numLetters;                
-            }
-            return bufferNum;          
-        }
+                throw new NullReferenceException("String is null. Input your string.");
+            }                     
 
-        public void CheckOnTheEndOfLine(int i, string str, ref int numLet,ref int buf)
-        {
-            if (i == str.Length - 1)
+            int numberOfSymbols = 1;
+            int bufferNumberOfSymbols = 0;
+
+            //Go along the string and find max number of unrepeating consecutive symbols in string
+            for (int index = 1; index < inputString.Length; index++)
             {
-                buf = CompareNumberOfLettersWithBufferNumberOfLetters(ref numLet,ref buf);
-                numLet = 1;                
+                //If consecutive symbols are not equal then add 1 to the number of symbols 
+                if (inputString[index] != inputString[index - 1])
+                {
+                    numberOfSymbols += 1;
+                    CheckOnTheEndOfLine(index, inputString, ref numberOfSymbols, ref bufferNumberOfSymbols);           
+                }
+                else
+                
+                {
+                    bufferNumberOfSymbols = CompareNumberOfSymbolsWithBufferNumberOfSymbols(ref numberOfSymbols, ref bufferNumberOfSymbols);
+                    numberOfSymbols = 1;                    
+                }
             }
-            
+            return inputString.Length == 1 ? 1 : bufferNumberOfSymbols; // If string has only one any symbol - return 1
         }
 
         /// <summary>
-        /// Method which gets the number of 
+        /// Method which compare number of unrepeating consecutive symbols with max number of unrepeating consecutive symbols.
         /// </summary>
-        /// <returns></returns>
-        public int GetNumberOfMaxRepeatingSymbols(string inputString)
+        private int CompareNumberOfSymbolsWithBufferNumberOfSymbols(ref int numberOfSymbols, ref int bufferNumberOfSymbols)
         {
-            if (inputString == null)
+            if (numberOfSymbols > bufferNumberOfSymbols)
             {
-                throw new Exception("UndefindException");
-                //return 0;
+                bufferNumberOfSymbols = numberOfSymbols;
             }
-            
-            
+            return bufferNumberOfSymbols;
+        }
 
-            int numberOfLetters = 1;
-            int bufferNumberOfLetters = 0;
-                        
-            for (int i = 1; i < inputString.Length; i++)
+        /// <summary>
+        /// Method which checks if string has ended
+        /// </summary>
+        private void CheckOnTheEndOfLine(int index, string inputString, ref int numberOfSymbols, ref int bufferNumberOfSymbols)
+        {
+            if (index == inputString.Length - 1)
             {
-                if (inputString[i] == inputString[i - 1])
-                {
-                    numberOfLetters += 1;
-                    CheckOnTheEndOfLine(i, inputString, ref numberOfLetters,ref bufferNumberOfLetters);              
-                   
-                }
-                else
-                {
-                    bufferNumberOfLetters = CompareNumberOfLettersWithBufferNumberOfLetters(ref numberOfLetters,ref bufferNumberOfLetters);
-                    numberOfLetters = 1;                    
-                }
+                bufferNumberOfSymbols = CompareNumberOfSymbolsWithBufferNumberOfSymbols(ref numberOfSymbols, ref bufferNumberOfSymbols);
+                numberOfSymbols = 1;
             }
 
-            return inputString.Length == 1 ? 1 : bufferNumberOfLetters; // If string has only one any symbol - return 1
         }
     }
 }
