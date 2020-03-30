@@ -21,14 +21,27 @@ namespace Dev4
             }
         }
 
-        public bool FlyTo(Point newPoint)
+        /// <summary>
+        /// Methods that returns true when drone will fly to new point.
+        /// When drone will not fly to new point will be exception.
+        /// Current positoin changes to new point when drone flew.
+        /// </summary>
+        /// <param name="newPoint">new point</param>
+        /// <returns></returns>
+        public void FlyTo(Point newPoint)
         {
             GetFlyTime(newPoint);
             CurrentPoint = newPoint;
-            return true;
+            Console.WriteLine("Drone flew to the end point");
         }
 
-
+        /// <summary>
+        /// Method that returns drone fligth time to a new point.
+        /// Condition: dron hangs up on 1 minutes every 10 minutes. 
+        /// Fligth distance can not be more than MaxDroneDistance.
+        /// </summary>
+        /// <param name="newPoint"></param>
+        /// <returns></returns>
         public TimeSpan GetFlyTime(Point newPoint)
         {
             TimeSpan flyTime = TimeSpan.FromHours(0);

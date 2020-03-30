@@ -6,7 +6,7 @@ namespace Dev4
 {
     public interface IFlyable
     {
-        bool FlyTo(Point point);
+        void FlyTo(Point point);
         TimeSpan GetFlyTime(Point point);
     }
 }

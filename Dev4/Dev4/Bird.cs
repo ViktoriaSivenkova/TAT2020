@@ -20,9 +20,16 @@ namespace Dev4
             {
                 _currentPoint = value;
             }            
-        }       
-
-        public bool FlyTo(Point newPoint)
+        }
+        /// <summary>
+        /// Methods that changes current positoin  to new point when bird flew.
+        /// When bird will not fly to new point will be exception.
+        /// Current positoin changes to new point when bird flew.
+        /// Flight time can not be mo than MaxBirdFlyTime.
+        /// </summary>
+        /// <param name="newPoint"></param>
+        /// <returns></returns>
+        public void FlyTo(Point newPoint)
         {
             var flyTime = GetFlyTime(newPoint);
             if (flyTime > TimeSpan.FromHours(ConstantValues.MaxBirdFlyTime))
@@ -32,10 +39,16 @@ namespace Dev4
             else
             {
                 CurrentPoint = newPoint;
-                return true;
+                Console.WriteLine("Bird flew to the end point");
             }
         }
 
+        /// <summary>
+        /// Method that returns bird fligth time to a new point.
+        /// Bird speed has random value from 0 to 20.
+        /// </summary>
+        /// <param name="newPoint"></param>
+        /// <returns></returns>
         public TimeSpan GetFlyTime(Point newPoint)
         {
             Random random = new Random();
@@ -49,7 +62,6 @@ namespace Dev4
                 var flyTime = CurrentPoint.FindDistance(newPoint, CurrentPoint) / birdSpeed;
                 return TimeSpan.FromHours(flyTime).NoMilliseconds();
             }
-
         }
     }
 }

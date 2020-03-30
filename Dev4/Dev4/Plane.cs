@@ -22,31 +22,43 @@ namespace Dev4
             }
         }
 
-        public bool FlyTo(Point newPoint)
+        /// <summary>
+        /// Methods that returns true when plane will fly to new point.
+        /// When plane will not fly to new point will be exception.
+        /// Current positoin changes to new point when plane flew.
+        /// </summary>
+        /// <param name="newPoint">new point</param>
+        /// <returns></returns>
+        public void FlyTo(Point newPoint)
         {
             GetFlyTime(newPoint);
             CurrentPoint = newPoint;
-            return true;
+            Console.WriteLine("Plane flew to the end point");
         }
+
         /// <summary>
         /// Method which gets plane fligth time 
         /// Condition: plane increases speed on 10km/hour every 10 km. Start speed = 200 km/hour
+        /// Fligth speed can not be more than MaxPlaneSpeed.
         /// </summary>
         /// <param name="newPoint"> finish point </param>
         /// <returns>plane fligth time</returns>
         public TimeSpan GetFlyTime(Point newPoint)
         {
-            //Set start plane speed
+            //Plane start fly from start speed
+
             double speed = ConstantValues.PlaneStartSpeed;
             TimeSpan flyTime = TimeSpan.FromHours(0);
 
             //Count time for every 10 km of flight. 
-            //Subtract from distans beetween finish and start point 10 km, count the tine
+            //Every 10 km count the time and increas speed on 10 km/hour 
+            //If distanse less than 10 km when count the time for this distance  end return fly time for all distance
+
             for (double distance = CurrentPoint.FindDistance(newPoint, CurrentPoint); distance > 0; distance -= ConstantValues.PlaneSpeedIncrease)
             {
-                if (distance >= ConstantValues.PlaneSpeedIncrease) 
+                if (distance >= ConstantValues.TenKilometers) 
                 {
-                    flyTime += TimeSpan.FromHours(ConstantValues.PlaneSpeedIncrease / speed);
+                    flyTime += TimeSpan.FromHours(ConstantValues.TenKilometers / speed);
                     speed += ConstantValues.PlaneSpeedIncrease;
                     if (speed > ConstantValues.MaxPlaneSpeed)
                     {
