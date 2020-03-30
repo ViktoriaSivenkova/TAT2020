@@ -1,9 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Dev4
 {
+    /// <summary>
+    /// Interface with flyable methods declaration for the next implementation in classes.
+    /// </summary>
     public interface IFlyable
     {
         void FlyTo(Point point);

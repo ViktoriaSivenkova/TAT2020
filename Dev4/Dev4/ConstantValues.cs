@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Dev4
+﻿namespace Dev4
 {
     public static class ConstantValues
     {
@@ -16,3 +12,4 @@ namespace Dev4
         public const int PlaneStartSpeed = 200;
     }
 }
+

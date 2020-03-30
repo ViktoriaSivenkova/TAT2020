@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Dev4
 {
@@ -8,7 +6,7 @@ namespace Dev4
     {
         Point _currentPoint;
 
-        public Bird (Point currentPoint)
+        public Bird(Point currentPoint)
         {
             CurrentPoint = currentPoint;
         }
@@ -19,16 +17,14 @@ namespace Dev4
             set
             {
                 _currentPoint = value;
-            }            
+            }
         }
         /// <summary>
         /// Methods that changes current positoin  to new point when bird flew.
         /// When bird will not fly to new point will be exception.
-        /// Current positoin changes to new point when bird flew.
+        /// Current position changes to new point when bird flew.
         /// Flight time can not be mo than MaxBirdFlyTime.
         /// </summary>
-        /// <param name="newPoint"></param>
-        /// <returns></returns>
         public void FlyTo(Point newPoint)
         {
             var flyTime = GetFlyTime(newPoint);
@@ -47,8 +43,6 @@ namespace Dev4
         /// Method that returns bird fligth time to a new point.
         /// Bird speed has random value from 0 to 20.
         /// </summary>
-        /// <param name="newPoint"></param>
-        /// <returns></returns>
         public TimeSpan GetFlyTime(Point newPoint)
         {
             Random random = new Random();
@@ -65,3 +59,4 @@ namespace Dev4
         }
     }
 }
+

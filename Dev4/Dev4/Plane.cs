@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Dev4
 {
     public class Plane : IFlyable
-    {    
+    {
         Point _currentPoint;
 
         public Plane(Point currentPoint)
@@ -31,7 +29,7 @@ namespace Dev4
         /// <returns></returns>
         public void FlyTo(Point newPoint)
         {
-            GetFlyTime(newPoint);
+            GetFlyTime(newPoint); // If GetFlyTime method will execute without exceptions, we can change the current point
             CurrentPoint = newPoint;
             Console.WriteLine("Plane flew to the end point");
         }
@@ -56,7 +54,7 @@ namespace Dev4
 
             for (double distance = CurrentPoint.FindDistance(newPoint, CurrentPoint); distance > 0; distance -= ConstantValues.PlaneSpeedIncrease)
             {
-                if (distance >= ConstantValues.TenKilometers) 
+                if (distance >= ConstantValues.TenKilometers)
                 {
                     flyTime += TimeSpan.FromHours(ConstantValues.TenKilometers / speed);
                     speed += ConstantValues.PlaneSpeedIncrease;
@@ -68,9 +66,10 @@ namespace Dev4
                 else
                 {
                     flyTime += TimeSpan.FromHours(distance / speed);
-                }                
+                }
             }
             return flyTime.NoMilliseconds();
         }
     }
 }
+
