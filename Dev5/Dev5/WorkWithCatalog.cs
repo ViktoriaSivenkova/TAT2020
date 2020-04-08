@@ -33,13 +33,7 @@ namespace Dev5
         public void AddToCatalog(Car car)
         {
             bool isTheSameCar = CarsList.Any(i => (i.Brand == car.Brand) && (i.Model == car.Model) && (i.UnitPrice == car.UnitPrice));
-            /*bool wrongPrice = CarsList.Any(i => (i.Brand == car.Brand) && (i.Model == car.Model) && (i.UnitPrice != car.UnitPrice));
-
-            if (wrongPrice)
-            {
-                throw new Exception("Different prices for the same car.");
-            }*/
-
+            
             if (isTheSameCar)
             {
                 Car carFromList = CarsList.First(i => (i.Brand == car.Brand) && (i.Model == car.Model) && (i.UnitPrice == car.UnitPrice));

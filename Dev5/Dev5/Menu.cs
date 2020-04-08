@@ -8,7 +8,7 @@ namespace Dev5
     public class Menu
     {               
         Command command;
-        WorkWithCatalog carCommand = new WorkWithCatalog();
+        WorkWithCatalog commandForCatalog = new WorkWithCatalog();
         GetInfoAboutCarFlomConsole infoAboutCar = new GetInfoAboutCarFlomConsole();
         
         public void Show()
@@ -30,25 +30,25 @@ namespace Dev5
                 switch (inputString)
                 {                                      
                     case AvailableCommands.AddToCatalogCommand:
-                        Car car1 = infoAboutCar.GetCarFromConsole();
-                        command = new AddCarToCatalogCommand(carCommand, car1);
+                        Car car = infoAboutCar.GetCarFromConsole();
+                        command = new AddCarToCatalogCommand(commandForCatalog, car);
                         command.Execute();
                         break;
                     case AvailableCommands.CountAllCommand:
-                        command = new CountAllCommand(carCommand);
+                        command = new CountAllCommand(commandForCatalog);
                         command.Execute();
                         break;
                     case AvailableCommands.CountTypesCommand:
-                        command = new CountTypesCommand(carCommand);
+                        command = new CountTypesCommand(commandForCatalog);
                         command.Execute();
                         break;
                     case AvailableCommands.AveragePriceCommand:
-                        command = new AveragePriceCommand(carCommand);
+                        command = new AveragePriceCommand(commandForCatalog);
                         command.Execute();
                         break;
                     case AvailableCommands.AveragePriceTypeCommand:
                         string brand = infoAboutCar.GetBrand();
-                        command = new AveragePriceTypeCommand(carCommand, brand);
+                        command = new AveragePriceTypeCommand(commandForCatalog, brand);
                         command.Execute();
                         break;                 
                     case AvailableCommands.ExitCommand:

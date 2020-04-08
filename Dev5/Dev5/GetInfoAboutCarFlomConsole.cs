@@ -28,6 +28,4 @@ namespace Dev5
             return Console.ReadLine();
         }
     }
-
-
 }

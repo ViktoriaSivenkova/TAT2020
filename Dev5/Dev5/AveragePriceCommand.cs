@@ -10,9 +10,6 @@ namespace Dev5
         {
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public override void Execute()
         {
             Console.WriteLine(Reciver.AveragePrice());

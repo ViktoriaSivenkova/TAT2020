@@ -20,8 +20,6 @@ namespace Dev5
                 instance = new CarCatalog();
             }
             return instance;        
-        }
-        //public static CarCatalog GetInstancea() => instance ??(instance = new CarCatalog());      
-
-     }
+        }        
+    }
 }

@@ -9,10 +9,7 @@ namespace Dev5
         public CountTypesCommand(WorkWithCatalog reciver) : base(reciver)
         {
         }
-
-        /// <summary>
-        /// Executes command that outputs count of brands to console
-        /// </summary>
+                
         public override void Execute()
         {
             Console.WriteLine(Reciver.CountTypes());
