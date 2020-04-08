@@ -6,7 +6,7 @@ namespace Dev5
 {
     public class AveragePriceCommand : Command
     {
-        public AveragePriceCommand(WorkWithCatalog reciver) : base(reciver)
+        public AveragePriceCommand(CatalogHelpers reciver) : base(reciver)
         {
         }
 

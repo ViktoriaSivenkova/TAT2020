@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Dev5
 {
-    public class WorkWithCatalog
+    public class CatalogHelpers
     {
         private List<Car> CarsList => CarCatalog.GetInstance().CarsList;
 

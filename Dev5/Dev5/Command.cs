@@ -6,9 +6,9 @@ namespace Dev5
 {
     public abstract class  Command
     {
-        protected WorkWithCatalog Reciver;
+        protected CatalogHelpers Reciver;
 
-        public Command(WorkWithCatalog reciver)
+        public Command(CatalogHelpers reciver)
         {
             Reciver = reciver;
         }

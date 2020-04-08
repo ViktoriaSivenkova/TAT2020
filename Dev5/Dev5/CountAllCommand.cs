@@ -6,7 +6,7 @@ namespace Dev5
 {
     public class CountAllCommand : Command
     {
-        public CountAllCommand(WorkWithCatalog reciver) : base(reciver)
+        public CountAllCommand(CatalogHelpers reciver) : base(reciver)
         {
         }
                 

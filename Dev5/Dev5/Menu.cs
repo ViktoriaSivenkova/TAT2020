@@ -8,7 +8,7 @@ namespace Dev5
     public class Menu
     {               
         Command command;
-        WorkWithCatalog commandForCatalog = new WorkWithCatalog();
+        CatalogHelpers commandForCatalog = new CatalogHelpers();
         GetInfoAboutCarFlomConsole infoAboutCar = new GetInfoAboutCarFlomConsole();
         
         public void Show()

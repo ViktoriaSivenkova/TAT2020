@@ -8,7 +8,7 @@ namespace Dev5
     {
         private string Brand { get; set; }
 
-        public AveragePriceTypeCommand(WorkWithCatalog reciver, string brand) : base(reciver)
+        public AveragePriceTypeCommand(CatalogHelpers reciver, string brand) : base(reciver)
         {
             Brand = brand;
         }   

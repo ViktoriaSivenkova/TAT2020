@@ -8,7 +8,7 @@ namespace Dev5
     {
         Car Car { get; set; }
 
-        public AddCarToCatalogCommand(WorkWithCatalog reciver, Car car) : base(reciver)
+        public AddCarToCatalogCommand(CatalogHelpers reciver, Car car) : base(reciver)
         {
             Car = car;
         }        
