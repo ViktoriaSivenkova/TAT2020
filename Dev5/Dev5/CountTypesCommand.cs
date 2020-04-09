@@ -1,18 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Dev5
 {
     public class CountTypesCommand : Command
     {
-        public CountTypesCommand(CatalogHelpers reciver) : base(reciver)
+        public CountTypesCommand(CatalogHelpers receiver) : base(receiver)
         {
         }
-                
+
+        /// <summary>
+        /// Executes command that outputs count of cars type in catalog to console
+        /// </summary>
         public override void Execute()
         {
-            Console.WriteLine(Reciver.CountTypes());
+            Console.WriteLine(Receiver.CountTypes());
         }
     }
 }

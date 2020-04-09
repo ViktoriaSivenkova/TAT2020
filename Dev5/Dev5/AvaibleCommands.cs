@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Dev5
+﻿namespace Dev5
 {
     public class AvailableCommands
     {

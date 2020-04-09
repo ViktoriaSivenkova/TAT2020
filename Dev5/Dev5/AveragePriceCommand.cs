@@ -1,18 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Dev5
 {
     public class AveragePriceCommand : Command
     {
-        public AveragePriceCommand(CatalogHelpers reciver) : base(reciver)
+        public AveragePriceCommand(CatalogHelpers receiver) : base(receiver)
         {
         }
 
+        /// <summary>
+        /// Executes command that outputs average price to console
+        /// </summary>
         public override void Execute()
         {
-            Console.WriteLine(Reciver.AveragePrice());
+            Console.WriteLine(Receiver.AveragePrice());
         }
     }
 }

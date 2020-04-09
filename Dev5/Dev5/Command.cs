@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Dev5
+﻿namespace Dev5
 {
     public abstract class  Command
     {
-        protected CatalogHelpers Reciver;
+        protected CatalogHelpers Receiver;
 
-        public Command(CatalogHelpers reciver)
+        public Command(CatalogHelpers receiver)
         {
-            Reciver = reciver;
+            Receiver = receiver;
         }
         public abstract void Execute();
     }

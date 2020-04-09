@@ -1,21 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Dev5
+﻿namespace Dev5
 {
     public class AddCarToCatalogCommand : Command
     {
         Car Car { get; set; }
 
-        public AddCarToCatalogCommand(CatalogHelpers reciver, Car car) : base(reciver)
+        public AddCarToCatalogCommand(CatalogHelpers receiver, Car car) : base(receiver)
         {
             Car = car;
-        }        
+        }
 
+        /// <summary>
+        /// Executes command that adds car to catalog
+        /// </summary>
         public override void Execute()
         {
-            Reciver.AddToCatalog(Car);
+            Receiver.AddToCatalog(Car);
         }
     }
 }

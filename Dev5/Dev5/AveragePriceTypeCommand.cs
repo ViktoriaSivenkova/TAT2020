@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Dev5
 {
@@ -8,14 +6,18 @@ namespace Dev5
     {
         private string Brand { get; set; }
 
-        public AveragePriceTypeCommand(CatalogHelpers reciver, string brand) : base(reciver)
+        public AveragePriceTypeCommand(CatalogHelpers receiver, string brand) : base(receiver)
         {
             Brand = brand;
-        }   
+        }
 
+
+        /// <summary>
+        /// Executes command that outputs average price type to console
+        /// </summary>
         public override void Execute()
         {
-            Console.WriteLine(Reciver.AveragePriceType(Brand));
+            Console.WriteLine(Receiver.AveragePriceType(Brand));
         }
     }
 }
